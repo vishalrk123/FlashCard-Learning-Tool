@@ -12,7 +12,7 @@ function Home() {
   useEffect(() => {
     const fetchFlashcards = async () => {
       let query = `?difficulty=${difficulty}&category=${category}`;
-      const response = await fetch(`http://localhost:8080/api/flashcards${query}`);
+      const response = await fetch(`${process.env.BACKEND_URL}/api/flashcards${query}`);
       const data = await response.json();
       setFlashcards(data);
       setCurrentIndex(0); 
