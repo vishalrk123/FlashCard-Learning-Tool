@@ -12,7 +12,8 @@ function Home() {
   useEffect(() => {
     const fetchFlashcards = async () => {
       let query = `?difficulty=${difficulty}&category=${category}`;
-      const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/flashcards${query}`);
+      const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/flashcards${query}`);
+      console.log("Backend URL:", import.meta.env.VITE_BACKEND_URL);
       const data = await response.json();
       setFlashcards(data);
       setCurrentIndex(0); 
@@ -47,7 +48,7 @@ function Home() {
                   className="p-2 border rounded-md w-28"
                   onClick={() => setIsCardAvailable(false)}
               >
-                  <option value="ALL" selected>ALL</option>
+                  <option defaultValue="ALL">ALL</option>
                   <option value="EASY">EASY</option>
                   <option value="MEDIUM">MEDIUM</option>
                   <option value="HARD">HARD</option>
@@ -62,7 +63,7 @@ function Home() {
                   className="p-2 border rounded-md w-28"
                   onClick={() => setIsCardAvailable(false)}
               >
-                  <option value="ALL" selected>ALL</option>
+                  <option defaultValue="ALL" >ALL</option>
                   <option value="OS">OS</option>
                   <option value="DBMS">DBMS</option>
                   <option value="OOPS">OOPS</option>

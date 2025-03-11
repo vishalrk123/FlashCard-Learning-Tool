@@ -8,7 +8,7 @@ function AllFlashCards() {
     useEffect(() => {
         const fetchAllCards = async () => {
             try{
-                const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/allCards`);
+                const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/allCards`);
                 if(!response.ok) {
                     throw new Error('No cards are found')
                 }
