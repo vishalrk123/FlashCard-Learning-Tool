@@ -9,7 +9,7 @@ function AddFlashCard() {
     const submitHandler = async (event) => {
         event.preventDefault();
         try {
-            const response = await fetch(`${process.env.BACKEND_URL}/api/add`, {
+            const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/add`, {
                 method: 'POST',
                 headers: {
                     'Content-Type' : 'application/json'
